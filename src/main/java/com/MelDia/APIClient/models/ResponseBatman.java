@@ -1,25 +1,28 @@
 package com.MelDia.APIClient.models;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
-import java.util.Optional;
+import java.io.Serializable;
+import java.util.List;
 
-public class ResponseById {
+public class ResponseBatman implements Serializable {
+
+    private static final long serialVersionUID = 1L;
+
+    @JsonProperty("movies")
+    private List<Batman> listMovies;
     
-    @JsonProperty("movie")
-    private Optional<BatmanById> batmanById;
-
     @JsonProperty("message")
     private String message;
-
+    
     @JsonProperty("status")
     private Integer status;
 
-    public Optional<BatmanById> getBatmanById() {
-        return batmanById;
+    public List<Batman> getListMovies() {
+        return listMovies;
     }
 
-    public void setBatmanById(Optional<BatmanById> batmanById) {
-        this.batmanById = batmanById;
+    public void setListMovies(List<Batman> listMovies) {
+        this.listMovies = listMovies;
     }
 
     public String getMessage() {
@@ -40,11 +43,9 @@ public class ResponseById {
 
     @Override
     public String toString() {
-        return "Response search by Id{" 
-                + "Id: " + batmanById 
+        return "Response{" 
+                + "list of movies: " + listMovies 
                 + ", message: " + message 
                 + ", status: " + status + '}';
-    }
-    
-    
+    }    
 }

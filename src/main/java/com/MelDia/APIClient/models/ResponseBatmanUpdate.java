@@ -3,10 +3,10 @@ package com.MelDia.APIClient.models;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import java.util.Optional;
 
-public class ResponseById {
+public class ResponseBatmanUpdate {
     
     @JsonProperty("movie")
-    private Optional<BatmanById> batmanById;
+    private Optional<Batman> batman;
 
     @JsonProperty("message")
     private String message;
@@ -14,12 +14,12 @@ public class ResponseById {
     @JsonProperty("status")
     private Integer status;
 
-    public Optional<BatmanById> getBatmanById() {
-        return batmanById;
+    public Optional<Batman> getBatman() {
+        return batman;
     }
 
-    public void setBatmanById(Optional<BatmanById> batmanById) {
-        this.batmanById = batmanById;
+    public void setBatman(Optional<Batman> batman) {
+        this.batman = batman;
     }
 
     public String getMessage() {
@@ -40,11 +40,13 @@ public class ResponseById {
 
     @Override
     public String toString() {
-        return "Response search by Id{" 
-                + "Id: " + batmanById 
+        return "Response Update{" 
+                + "movie" + batman 
                 + ", message: " + message 
-                + ", status: " + status + '}';
+                + ", status: " + status 
+                + '}';
     }
+    
     
     
 }

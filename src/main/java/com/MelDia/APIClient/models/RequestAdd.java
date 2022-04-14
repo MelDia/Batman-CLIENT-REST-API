@@ -2,46 +2,28 @@ package com.MelDia.APIClient.models;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 
-public class BatmanById {
-
-    private static final long serialVersionUID = 1L;
-
-    @JsonProperty("id_movie")
-    private Integer id_movie;
-
+public class RequestAdd {
+    
     @JsonProperty("movie_name")
     private String Movie_name;
-
+    
     @JsonProperty("release_date")
     private String Release_date;
-
+    
     @JsonProperty("director")
     private String Director;
-
+    
     @JsonProperty("protagonist")
     private String Protagonist;
 
-    public BatmanById() {
+    public RequestAdd() {
     }
 
-    public BatmanById(Integer id_movie) {
-        this.id_movie = id_movie;
-    }
-
-    public BatmanById(Integer id_movie, String Movie_name, String Release_date, String Director, String Protagonist) {
-        this.id_movie = id_movie;
+    public RequestAdd(String Movie_name, String Release_date, String Director, String Protagonist) {
         this.Movie_name = Movie_name;
         this.Release_date = Release_date;
         this.Director = Director;
         this.Protagonist = Protagonist;
-    }
-
-    public Integer getId_movie() {
-        return id_movie;
-    }
-
-    public void setId_movie(Integer id_movie) {
-        this.id_movie = id_movie;
     }
 
     public String getMovie_name() {
@@ -75,15 +57,6 @@ public class BatmanById {
     public void setProtagonist(String Protagonist) {
         this.Protagonist = Protagonist;
     }
-
-    @Override
-    public String toString() {
-        return "Batman by Id{"
-                + "Id: " + id_movie
-                + ", Movie name: " + Movie_name
-                + ", Release date: " + Release_date
-                + ", Director: " + Director
-                + ", Protagonist: " + Protagonist + '}';
-    }
-
+    
+    
 }

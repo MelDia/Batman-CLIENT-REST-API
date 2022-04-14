@@ -1,15 +1,11 @@
 package com.MelDia.APIClient.models;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
-import java.io.Serializable;
-import java.util.List;
 
-public class BatmanResponse implements Serializable {
-
-    private static final long serialVersionUID = 1L;
-
-    @JsonProperty("movies")
-    private List<Batman> listMovies;
+public class ResponseBatmanAdd {
+    
+    @JsonProperty("movie")
+    private Batman batman;
     
     @JsonProperty("message")
     private String message;
@@ -17,12 +13,12 @@ public class BatmanResponse implements Serializable {
     @JsonProperty("status")
     private Integer status;
 
-    public List<Batman> getListMovies() {
-        return listMovies;
+    public Batman getBatman() {
+        return batman;
     }
 
-    public void setListMovies(List<Batman> listMovies) {
-        this.listMovies = listMovies;
+    public void setBatman(Batman batman) {
+        this.batman = batman;
     }
 
     public String getMessage() {
@@ -43,9 +39,12 @@ public class BatmanResponse implements Serializable {
 
     @Override
     public String toString() {
-        return "BatClientResponse{" 
-                + "list of movies: " + listMovies 
+        return "Response Add {" 
+                + batman 
                 + ", message: " + message 
-                + ", status: " + status + '}';
-    }    
+                + ", status: " + status 
+                + '}';
+    }
+    
+    
 }
