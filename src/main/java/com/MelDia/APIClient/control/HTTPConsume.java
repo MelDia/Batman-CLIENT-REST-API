@@ -27,13 +27,15 @@ public class HTTPConsume {
         String url = "http://localhost:8080/batman/list/allMovies";
         return restTemp.getForObject(url, ResponseBatman.class);
     }
-
+////////////////////////////////////////////////////////////////////////////////////
+    
     //GET ID 
     public ResponseEntity<String> HttpConsumeId(Integer batman) {
         String url = "http://localhost:8080/batman/search/" + batman;
         ResponseEntity<String> responseEnti = restTemp.getForEntity(url, String.class);
         return responseEnti;
     }
+////////////////////////////////////////////////////////////////////////////////////
 
     //POST ADD
     public ResponseEntity<String> HttpConsumeAdd(BatmanAdd batmanAdd) {
@@ -48,6 +50,7 @@ public class HTTPConsume {
         ResponseEntity<String> responseEnti = restTemp.postForEntity(url, httpEnti, String.class);
         return responseEnti;
     }
+////////////////////////////////////////////////////////////////////////////////////
 
     //DELETE
     public ResponseEntity<String> HttpConsumeDelete(BatmanRequest batReq) {
@@ -60,6 +63,7 @@ public class HTTPConsume {
         ResponseEntity<String> responseEnti = restTemp.exchange(url, HttpMethod.DELETE, httpEnti, String.class);
         return responseEnti;
     }
+////////////////////////////////////////////////////////////////////////////////////
     
     //PUT
     public ResponseEntity<String> HttpConsumeUpdate(Batman batman){
@@ -74,5 +78,5 @@ public class HTTPConsume {
         ResponseEntity<String> responseEnti = restTemp.exchange(url, HttpMethod.PUT, httpEnti, String.class);
         return responseEnti;
     }
-
+////////////////////////////////////////////////////////////////////////////////////
 }

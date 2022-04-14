@@ -4,7 +4,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import java.util.Optional;
 
 public class ResponseById {
-    
+
     @JsonProperty("movie")
     private Optional<BatmanById> batmanById;
 
@@ -13,6 +13,12 @@ public class ResponseById {
 
     @JsonProperty("status")
     private Integer status;
+
+    @JsonProperty("ErrorCode")
+    private String errorCode;
+
+    @JsonProperty("ErrorMessage")
+    private String errorMessage;
 
     public Optional<BatmanById> getBatmanById() {
         return batmanById;
@@ -38,13 +44,29 @@ public class ResponseById {
         this.status = status;
     }
 
-    @Override
-    public String toString() {
-        return "Response search by Id{" 
-                + "Id: " + batmanById 
-                + ", message: " + message 
-                + ", status: " + status + '}';
+    public String getErrorCode() {
+        return errorCode;
+    }
+
+    public void setErrorCode(String errorCode) {
+        this.errorCode = errorCode;
+    }
+
+    public String getErrorMessage() {
+        return errorMessage;
+    }
+
+    public void setErrorMessage(String errorMessage) {
+        this.errorMessage = errorMessage;
     }
     
-    
+
+    @Override
+    public String toString() {
+        return "Response search by Id{"
+                + "Id: " + batmanById
+                + ", message: " + message
+                + ", status: " + status + '}';
+    }
+
 }

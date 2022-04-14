@@ -13,6 +13,12 @@ public class ResponseBatmanUpdate {
 
     @JsonProperty("status")
     private Integer status;
+    
+    @JsonProperty("ErrorCode")
+    private String errorCode;
+
+    @JsonProperty("ErrorMessage")
+    private String errorMessage;
 
     public Optional<Batman> getBatman() {
         return batman;
@@ -37,6 +43,24 @@ public class ResponseBatmanUpdate {
     public void setStatus(Integer status) {
         this.status = status;
     }
+
+    public String getErrorCode() {
+        return errorCode;
+    }
+
+    public void setErrorCode(String errorCode) {
+        this.errorCode = errorCode;
+    }
+
+    public String getErrorMessage() {
+        return errorMessage;
+    }
+
+    public void setErrorMessage(String errorMessage) {
+        this.errorMessage = errorMessage;
+    }
+    
+    
 
     @Override
     public String toString() {
