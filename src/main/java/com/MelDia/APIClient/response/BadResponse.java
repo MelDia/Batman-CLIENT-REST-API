@@ -6,8 +6,6 @@ import com.MelDia.APIClient.models.ResponseBatman;
 import com.MelDia.APIClient.models.ResponseById;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import org.json.JSONObject;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import org.springframework.http.HttpStatus;
 
 public class BadResponse {
@@ -16,19 +14,21 @@ public class BadResponse {
         jsonObj.put("ErrorCode", batResponse);
         return jsonObj.toString();
     }
-
+///////////////////////////////////////////////////////////////////////////////////////////////
+    
     public static String ExceptionResponseId(JSONObject jsonObj, ResponseById responseId) throws JsonProcessingException {
         jsonObj.put("status", responseId.getStatus());
         jsonObj.put("ErrorCode", responseId.getErrorCode());
         jsonObj.put("ErrorMessage", responseId.getErrorMessage());
         return jsonObj.toString();
     }
-
+///////////////////////////////////////////////////////////////////////////////////////////////
+    
     public static String ExceptionResponseAdd(JSONObject jsonObj, BatmanAdd batmanAdd) {
-        if (!(batmanAdd.getMovie_name() == null) 
-                || !(batmanAdd.getRelease_date() == null) 
-                || !(batmanAdd.getDirector() == null)
-                || !(batmanAdd.getProtagonist() == null)) {
+        if (!(batmanAdd.getMovie_name() == null 
+                || batmanAdd.getRelease_date() == null 
+                || batmanAdd.getDirector() == null
+                || batmanAdd.getProtagonist() == null)) {
             
             jsonObj.put("status", HttpStatus.BAD_REQUEST.value());
             jsonObj.put("ErrorCode", "NN-0001");
@@ -36,7 +36,8 @@ public class BadResponse {
         }
         return jsonObj.toString(); 
     }
-
+///////////////////////////////////////////////////////////////////////////////////////////////
+    
     public static String ExceptionResponseUpdate(JSONObject jsonObj, Batman batman) {
         if (!(batman.getId_movie() == null) || batman.getId_movie() <= 0) {
             jsonObj.put("status", HttpStatus.BAD_REQUEST.value());
@@ -45,6 +46,7 @@ public class BadResponse {
         }
         return jsonObj.toString();
     }
+///////////////////////////////////////////////////////////////////////////////////////////////
     
     public static String ExceptionResponseDelete(JSONObject jsonObj, ResponseById responseId) {
         jsonObj.put("status", responseId.getStatus());

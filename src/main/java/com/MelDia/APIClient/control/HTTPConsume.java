@@ -45,7 +45,7 @@ public class HTTPConsume {
         
         HttpHeaders headers = new HttpHeaders();
         headers.setContentType(MediaType.APPLICATION_JSON);
-        HttpEntity<String> httpEnti = new HttpEntity<String>(toJson, headers);
+        HttpEntity<String> httpEnti = new HttpEntity(toJson, headers);
         
         ResponseEntity<String> responseEnti = restTemp.postForEntity(url, httpEnti, String.class);
         return responseEnti;
@@ -58,7 +58,7 @@ public class HTTPConsume {
         
         HttpHeaders headers = new HttpHeaders();
         headers.setContentType(MediaType.APPLICATION_JSON);
-        HttpEntity<String> httpEnti = new HttpEntity<String>(headers);
+        HttpEntity<String> httpEnti = new HttpEntity(headers);
         
         ResponseEntity<String> responseEnti = restTemp.exchange(url, HttpMethod.DELETE, httpEnti, String.class);
         return responseEnti;
@@ -73,7 +73,7 @@ public class HTTPConsume {
         
         HttpHeaders headers = new HttpHeaders();
         headers.setContentType(MediaType.APPLICATION_JSON);
-        HttpEntity<String> httpEnti = new HttpEntity<String>(toJson, headers);
+        HttpEntity<String> httpEnti = new HttpEntity(toJson, headers);
         
         ResponseEntity<String> responseEnti = restTemp.exchange(url, HttpMethod.PUT, httpEnti, String.class);
         return responseEnti;
